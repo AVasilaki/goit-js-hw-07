@@ -1,7 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 
 // Change code below this line
-// import * as basicLightbox from "basiclightbox";
+
 const container = document.querySelector(".gallery");
 
 function createMurcup(arr) {

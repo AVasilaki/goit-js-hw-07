@@ -1,4 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
+
 // Change code below this line
 // import * as basicLightbox from "basiclightbox";
 const container = document.querySelector(".gallery");
@@ -29,6 +30,12 @@ function handlerClick(evt) {
   const instance = basicLightbox.create(`
     <img src= ${selectedImg} width="800" height="600">
 `);
-
+  window.addEventListener("keydown", handlerKey);
+  function handlerKey(evt) {
+    if (evt.code === "Escape") {
+      console.log("esc");
+      instance.close();
+    }
+  }
   instance.show();
 }

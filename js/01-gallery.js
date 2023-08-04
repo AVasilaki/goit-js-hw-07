@@ -18,6 +18,7 @@ function createMurcup(arr) {
     .join("");
 }
 container.insertAdjacentHTML("beforeend", createMurcup(galleryItems));
+
 container.addEventListener("click", handlerClick);
 function handlerClick(evt) {
   evt.preventDefault();
@@ -30,12 +31,13 @@ function handlerClick(evt) {
   const instance = basicLightbox.create(`
     <img src= ${selectedImg} width="800" height="600">
 `);
+  instance.show();
+
   window.addEventListener("keydown", handlerKey);
   function handlerKey(evt) {
     if (evt.code === "Escape") {
-      console.log("esc");
       instance.close();
+      window.removeEventListener("keydown", handlerKey);
     }
   }
-  instance.show();
 }
